@@ -1,0 +1,78 @@
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Student Dashboard</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="d-flex">
+            <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal" type="submit">Add Student</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Roll No</th>
+          <th>Name</th>
+          <th>Date of Birth</th>
+          <th>Score</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let Student of studentList">
+          <td>{{Student.rollnumber}}</td>
+          <td>{{Student.name}}</td>
+          <td>{{Student.dateofbirth}}</td>
+          <td>{{Student.score}}</td>
+          <td>
+            <input type="button" data-bs-toggle="modal" (click)="editStudent(Student)" data-bs-target="#exampleModal" value="Edit" class="btn btn-success me-2"/>
+            <input type="button" value="Delete" (click)="deleteStudent(Student)" class="btn btn-danger"/>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Student Registration</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="studentValue">
+              <div class="mb-3">
+                <label for="txtname" class="form-label">Roll Number</label>
+                <input type="text" formControlName="rollnumber" class="form-control" id="txtname" placeholder="Enter the Name">
+                </div>
+                <div class="mb-3">
+                  <label for="txtname" class="form-label">Name</label>
+                  <input type="text" formControlName="name" class="form-control" id="txtname" placeholder="Enter the Name">
+                  </div>
+                  <div class="mb-3">
+                    <label for="txtdateofbirth" class="form-label">Date Of Birth</label>
+                    <input type="date" formControlName="dateofbirth" class="form-control" id="txtdateofbirth" placeholder="Enter the Date of Birth">
+                    </div>
+                    <div class="mb-3">
+                        <label for="txtscore" class="form-label">Enter the Score</label>
+                        <div class="input-group">
+                            <div class="input-group-text">%</div>
+                            <input type="text" formControllerName="score" class="form-control" id="txtscore" placeholder="Enter the result">
+                        </div>
+              </div>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cancel" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+          <button type="button"  class="btn btn-primary" (click)="AddStudent()">Save</button>
+          <button type="button"  class="btn btn-primary" (click)="updateStudent()">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,29 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "rollnumber": "1",
+      "name": "Student A",
+      "dateofbirth": "2022-05-12",
+      "score": null
+    },
+    {
+      "id": 2,
+      "rollnumber": "2",
+      "name": "Student B",
+      "dateofbirth": "2022-05-06",
+      "score": null
+    },
+    {
+      "id": 3,
+      "rollnumber": "3",
+      "name": "Student C",
+      "dateofbirth": "2022-05-13",
+      "score": null
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
